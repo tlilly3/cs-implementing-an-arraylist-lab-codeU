@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.flatironschool.javacs;
 
@@ -17,9 +17,9 @@ import java.util.ListIterator;
 public class MyArrayList<E> implements List<E> {
 	int size;                    // keeps track of the number of elements
 	private E[] array;           // stores the elements
-	
+
 	/**
-	 * 
+	 *
 	 */
 	public MyArrayList() {
 		// You can't instantiate an array of T[], but you can instantiate an
@@ -39,7 +39,7 @@ public class MyArrayList<E> implements List<E> {
 		mal.add(2);
 		mal.add(3);
 		System.out.println(Arrays.toString(mal.toArray()) + " size = " + mal.size);
-		
+
 		mal.remove(new Integer(2));
 		System.out.println(Arrays.toString(mal.toArray()) + " size = " + mal.size);
 	}
@@ -51,7 +51,7 @@ public class MyArrayList<E> implements List<E> {
 			E[] bigger = (E[]) new Object[array.length * 2];
 			System.arraycopy(array, 0, bigger, 0, array.length);
 			array = bigger;
-		} 
+		}
 		array[size] = element;
 		size++;
 		return true;
@@ -61,6 +61,8 @@ public class MyArrayList<E> implements List<E> {
 	public void add(int index, E element) {
 		if (index < 0 || index > size) {
 			throw new IndexOutOfBoundsException();
+		} else if (e == null) {
+			throw new NullPointerException();
 		}
 		// TODO: fill in the rest of this method
 	}
@@ -116,9 +118,9 @@ public class MyArrayList<E> implements List<E> {
 	}
 
 	/** Checks whether an element of the array is the target.
-	 * 
+	 *
 	 * Handles the special case that the target is null.
-	 * 
+	 *
 	 * @param target
 	 * @param object
 	 */
@@ -227,6 +229,6 @@ public class MyArrayList<E> implements List<E> {
 
 	@Override
 	public <T> T[] toArray(T[] array) {
-		throw new UnsupportedOperationException();		
+		throw new UnsupportedOperationException();
 	}
 }
